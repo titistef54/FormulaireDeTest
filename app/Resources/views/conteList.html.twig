@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liste des contes</title>
+</head>
+<body>
+<h2>Cliquez sur un conte pour le modifier</h2>
+
+{% for conte in contes  %}
+    <p><a href="{{ path('edit_conte', {'id':conte.id}) }}">
+            {{ conte.id }} -
+            {{ conte.situationInitiale }} -
+            {{ conte.elementDeclencheur }} -
+            {{ conte.peripetie }} -
+            {{ conte.denouement }} -
+            {{ conte.situationFinale }}</a>
+            <a href="{{ path('delete_conte', {'id':conte.id}) }}">Supprimer</a></p>
+{% endfor %}
+
+</body>
+</html>
